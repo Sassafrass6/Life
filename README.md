@@ -7,4 +7,5 @@ Requirements:
 * Tkinter
 
 Usage:
+
 python ConwaysLife.py

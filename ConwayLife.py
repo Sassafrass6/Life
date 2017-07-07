@@ -6,22 +6,47 @@ import numpy as np
 
 #### Patterns ####
 
-# --- Glider ---
+# ----- Blinker -----
+blinkerPattern = np.zeros((3,3), dtype=bool)
+blinkerPattern[1,:3] = True
+# -------------------
+
+# ---- Die Hard ----
+dieHardPattern = np.zeros((8,3), dtype=bool)
+dieHardPattern[0:2,1] = True
+dieHardPattern[1,2] = dieHardPattern[6][0] = True
+dieHardPattern[5:8,2] = True
+# ------------------
+
+# ----- Glider -----
 gliderPattern = np.zeros((3,3), dtype=bool)
 gliderPattern[0:3,2] = True
 gliderPattern[1][0] = gliderPattern[2][1] = True 
-# --------------
+# ------------------
 
-# -- Spaceship --
+# --- I-Beam Pattern ---
+iBeamPattern = np.zeros((3,12), dtype=bool)
+ibs = [0, 3, 8, 11]
+for i in ibs:
+  iBeamPattern[0:4, ibs] = True
+iBeamPattern[1,1:3] = True
+iBeamPattern[1,9:11] = True
+iBeamPattern[0:4,5:7] = True
+# ----------------------
+
+# ------ Pulsar -------
+pulsarPattern = np.zeros((13,13), dtype=bool)
+ps = [0, 5, 7, 12]
+for i in ps:
+  pulsarPattern[2:5, i] = pulsarPattern[8:11, i] = True
+  pulsarPattern[i, 2:5] = pulsarPattern[i, 8:11] = True
+# ---------------------
+
+# ----- Spaceship -----
 spaceshipPattern = np.zeros((4,5), dtype=bool)
 spaceshipPattern[0][0] = spaceshipPattern[0][3] = spaceshipPattern[2][0] = True
 spaceshipPattern[3,1:5] = spaceshipPattern[1:3,4] = True
-# ---------------
-
-# --- Blinker ---
-blinkerPattern = np.zeros((3,3), dtype=bool)
-blinkerPattern[1,:3] = True
-# ---------------
+# ---------------------
 
 ##################
 
@@ -75,10 +100,12 @@ class Life():
     self.draw_grid(1, self.gridSizeX-1, 1, self.gridSizeY-1)
 
     # OPTIONAL:  Add patterns to empty grid
-    self.draw_pattern(spaceshipPattern, 1, 1)
-    self.draw_pattern(gliderPattern, 8, 1)
-    self.draw_pattern(gliderPattern, 14, 1)
-    self.draw_pattern(gliderPattern, 20, 1)
+#    self.draw_pattern(blinkerPattern, 5, 5)
+#    self.draw_pattern(dieHardPattern, 11, 12)
+#    self.draw_pattern(gliderPattern, 2, 1)
+#    self.draw_pattern(iBeamPattern, 15, 10)
+#    self.draw_pattern(pulsarPattern, 13, 16)
+#    self.draw_pattern(spaceshipPattern, 1, 1)
 
     # Game loop
     while True:
