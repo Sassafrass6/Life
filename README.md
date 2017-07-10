@@ -7,7 +7,12 @@ Requirements:
 * Tkinter
 
 Command Line Usage:
+
+ Life:
 * python ConwaysLife.py
+
+ Hash Life:
+* python HashLife.py
 
 Ingame Keybindings:
 * p - Pause simulation
