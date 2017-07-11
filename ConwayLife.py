@@ -67,6 +67,9 @@ class Life():
 
     # Duration between frame updates
     self.speed = 100
+    
+    # Flag for printing update_grid(..) time
+    self.ptime = False
 
     # Flag determining weather the frame should be drawn
     self.uframe = False
@@ -105,9 +108,11 @@ class Life():
     while True:
       try:
         if self.running:
-          ttime = time.time()
+          if ptime:
+            ttime = time.time()
           self.update_grid()
-          print time.time() - ttime
+          if ptime:
+            print time.time() - ttime
         self.canvas.after(self.speed)
         self.canvas.update()
       except TclError:
