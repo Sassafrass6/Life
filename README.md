@@ -9,7 +9,7 @@ Requirements:
 Command Line Usage:
 
  Life:
-* python ConwaysLife.py
+* python ConwayLife.py
 
  Hash Life:
 * python HashLife.py
