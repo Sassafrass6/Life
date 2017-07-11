@@ -70,6 +70,7 @@ class Life():
     
     # Flag for printing update_grid(..) time
     self.ptime = False
+    self.ttime = 0.0
 
     # Flag determining weather the frame should be drawn
     self.uframe = False
@@ -108,11 +109,11 @@ class Life():
     while True:
       try:
         if self.running:
-          if ptime:
-            ttime = time.time()
+          if self.ptime:
+            self.ttime = time.time()
           self.update_grid()
-          if ptime:
-            print time.time() - ttime
+          if self.ptime:
+            print time.time() - self.ttime
         self.canvas.after(self.speed)
         self.canvas.update()
       except TclError:

@@ -72,7 +72,7 @@ class Life():
 
 		# Flag for printing update_grid(..) time
 		self.ptime = False
-		ttime = 0.0
+		self.ttime = 0.0
 
 		# Flag determining weather the frame should be drawn
 		self.uframe = False
@@ -106,17 +106,17 @@ class Life():
 #		self.draw_pattern(gliderPattern, 1, 1)
 #		self.draw_pattern(iBeamPattern, 15, 10)
 #    self.draw_pattern(pulsarPattern, 13, 16)
-#		self.draw_pattern(spaceshipPattern, 1, 1)
+#		self.draw_pattern(spaceshipPattern, 10, 1)
 
 		# Game loop
 		while True:
 			try:
 				if self.running:
-					if ptime:
-						ttime = time.time()
+					if self.ptime:
+						self.ttime = time.time()
 					self.update_grid((0, 0), pow2)
-					if ptime:
-						print time.time() - ttime
+					if self.ptime:
+						print time.time() - self.ttime
 				self.canvas.after(self.speed)
 				self.canvas.update()
 			except TclError:
