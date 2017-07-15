@@ -25,6 +25,22 @@ gliderPattern[0:3,2] = True
 gliderPattern[1][0] = gliderPattern[2][1] = True 
 # ------------------
 
+# --- Glider Gun Pattern ---
+gliderGunPattern = np.zeros((38,9), dtype=bool)
+gliderGunPattern[0:2,4:6] = True
+gliderGunPattern[34:36,2:4] = True
+gliderGunPattern[10,4:7] = True
+gliderGunPattern[11,3] = gliderGunPattern[11,7] = True
+gliderGunPattern[12:14,2] = gliderGunPattern[12:14,8] = True
+gliderGunPattern[14,5] = gliderGunPattern[17,5] = True
+gliderGunPattern[15,3] = gliderGunPattern[15,7] = True
+gliderGunPattern[16,4:7] = True
+gliderGunPattern[20:22,2:5] = True
+gliderGunPattern[22,1] = gliderGunPattern[22,5] = True
+gliderGunPattern[24,0:2] = gliderGunPattern[24,5:7] = True
+#gliderGunPattern
+# --------------------------
+
 # --- I-Beam Pattern ---
 iBeamPattern = np.zeros((3,12), dtype=bool)
 ibs = [0, 3, 8, 11]
@@ -65,7 +81,7 @@ class Life():
     self.boxWidth = bWidth
     
     # Simulation starts paused
-    self.running = False
+    self.running = True
 
     # Duration between frame updates
     self.speed = 100
@@ -104,6 +120,7 @@ class Life():
 #    self.draw_pattern(blinkerPattern, 1, 1)
 #    self.draw_pattern(dieHardPattern, 30, 30)
 #    self.draw_pattern(gliderPattern, 1, 1)
+    self.draw_pattern(gliderGunPattern, 1, 1)
 #    self.draw_pattern(iBeamPattern, 15, 10)
 #    self.draw_pattern(pulsarPattern, 13, 16)
 #    self.draw_pattern(spaceshipPattern, 1, 1)
