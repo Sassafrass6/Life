@@ -70,7 +70,7 @@ spaceshipPattern[3,1:5] = spaceshipPattern[1:3,4] = True
 
 class Life():
 
-  def __init__ ( self, wHeight=400, wWidth=400, bWidth=25, pow2=4 ):
+  def __init__ ( self, wHeight=400, wWidth=400, bWidth=25, pow2=4, autostart=True ):
 
     self.gridSize = 2**pow2
     
@@ -81,7 +81,7 @@ class Life():
     self.boxWidth = bWidth
     
     # Simulation starts paused
-    self.running = True
+    self.running = autostart
 
     # Duration between frame updates
     self.speed = 100
@@ -381,4 +381,4 @@ class Life():
     self.quit()
  
 # Instatiate game
-game = Life(wWidth=800, wHeight=800, bWidth=12, pow2=6)
+game = Life(wWidth=800, wHeight=800, bWidth=12, pow2=6, autostart=True)
