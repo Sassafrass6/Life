@@ -1,7 +1,7 @@
-from Tkinter import *
+import tkinter.font as tkFont
+from tkinter import *
 import numpy as np
 import hashlib
-import tkFont
 import time
 
 
@@ -133,7 +133,7 @@ class Life():
             ttime = time.time()
           self.update_grid((0, 0), pow2)
           if self.ptime:
-            print time.time() - ttime
+            print(time.time() - ttime)
         self.canvas.after(self.speed)
         self.canvas.update()
       except TclError:
@@ -166,7 +166,7 @@ class Life():
     
   # Return a unique string identifier representing the state of the board
   def hash_life ( self, life ):
-    hView = life[:, :].tostring()
+    hView = life[:, :].tobytes()
     return hashlib.sha1(hView).hexdigest()
 
   # Update the life grid recursively
@@ -197,11 +197,11 @@ class Life():
       
       # If the block size is greater than 4, break it into 9 inner boxes,
       #  each with side_length = fourths = pow2-1 = size/2 and overlapping the previous by 1 box.
-      fourths = size/4
+      fourths = size//4
       offset = 2**(pow2-3)
       # Iterate over the boxes
-      for i in np.arange(0, 3*fourths, fourths):
-        for j in np.arange(0, 3*fourths, fourths):
+      for i in range(0, 3*fourths, fourths):
+        for j in range(0, 3*fourths, fourths):
           msize = 2**(pow2-1)
           mhid = self.hash_life(self.life[startXY[0]+i:startXY[0]+i+msize, startXY[1]+j:startXY[1]+j+msize])
           

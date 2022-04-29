@@ -1,7 +1,7 @@
-from Tkinter import *
-import tkFont
-import time
+import tkinter.font as tkFont
+from tkinter import *
 import numpy as np
+import time
 
 
 #### Patterns ####
@@ -113,7 +113,7 @@ class Life():
             self.ttime = time.time()
           self.update_grid()
           if self.ptime:
-            print time.time() - self.ttime
+            print(time.time() - self.ttime)
         self.canvas.after(self.speed)
         self.canvas.update()
       except TclError:

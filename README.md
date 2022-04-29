@@ -1,8 +1,11 @@
 # Life
 Conway's Life in Python
 
+ConwayLife is a trivial implementation.
+HashLife uses hash mapping to update patterns which have been encountered before.
+
 Requirements:
-* Python
+* Python 3.8+
 * Numpy
 * Tkinter
 
